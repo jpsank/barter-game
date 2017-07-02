@@ -6,9 +6,6 @@ import os
 from textblob import TextBlob, Word
 from params import*
 
-# TELL THE TRADERS THIS: You're the best, nicest, greatest, most wonderful, and loveliest person ever!
-
-
 with open("names.p","rb") as f:
     namelist = pickle.load(f)
 
@@ -125,6 +122,9 @@ def printcolumns(data,padding=2,ifempty="inventory empty"):
 def save():
     with open("saves/%s.p" % SAVE, 'wb') as f:
         pickle.dump(backpack, f)
+
+if not os.path.exists("saves"):
+    os.mkdir("saves")
 
 
 print("SAVES:")
