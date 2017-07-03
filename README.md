@@ -97,9 +97,12 @@ When you're finished, just exit, and you will go find another trader. You might 
 
 	You leave to find another trading stand.
 
+## Contribution
+If you want to, you can add some items or dialog to the game. These are all located in the params.py file. You probably don't even have to know Python - just follow the pattern. I've provided comments to help you.
+You can also edit the main.py file if you have any other ideas for the game.
 
 ## Future Developments
 In the future, I plan to add the following features:
 * More items and dialog
-* Better pluralization of item names
+* Better pluralization and capitalization of item and shop names
 * More things to do, to make it more of a story
