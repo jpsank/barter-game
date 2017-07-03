@@ -5,6 +5,12 @@ import math
 import os
 from textblob import TextBlob, Word
 from params import*
+from difflib import SequenceMatcher
+
+
+def similar(a, b):
+    return SequenceMatcher(None, a, b).ratio()
+
 
 with open("names.p","rb") as f:
     namelist = pickle.load(f)
@@ -38,8 +44,10 @@ class Trader:
         self.shopname = None
         self.shopname = self.fill(random.choice(SHOPNAMES)).title()
 
-        self.last = None
-        self.streak = 0
+        self.lasttext = None
+        self.textstreak = 1
+        self.lastoffer = None
+        self.offerstreak = 0
         self.sold = False
         self.leave = False
 
@@ -64,20 +72,29 @@ class Trader:
 
     def reply(self,text):
         self.mood *= .8
+        if self.lasttext is not None and similar(self.lasttext, text) > .8:
+            self.mood /= self.textstreak
+            self.textstreak += .2
+        else:
+            self.textstreak = 1
+        self.lasttext = text
         blob = TextBlob(text)
         self.mood *= blob.polarity+1
-        self.mood = 1 if self.mood > 1 else 0 if self.mood < 0 else self.mood
+        self.mood = 1. if self.mood > 1 else 0. if self.mood < 0 else self.mood
+        if self.mood < .1:
+            self.leave = True
+            return self.fill(self.getIndex(GETOUT))
         offer = [i[0] for i in blob.tags if i[1] == "CD"]
         if len(offer) == 1:
             offer = float(offer[0])
             ratio = offer/self.price
-            if offer == self.last:
-                if self.streak == 0: self.streak += 1
-                else: self.streak += .2
-                self.mood /= self.streak
+            if offer == self.lastoffer:
+                if self.offerstreak == 0: self.offerstreak += 1
+                else: self.offerstreak += .2
+                self.mood /= self.offerstreak
             else:
-                self.streak = 0
-            self.last = offer
+                self.offerstreak = 0.
+            self.lastoffer = offer
             accept = (self.mood+.2)*ratio
             if random.random()+random.random()*.2 <= accept:
                 self.leave = True
@@ -88,21 +105,21 @@ class Trader:
                     return self.fill(self.getIndex(NOTENOUGHMONEY))
             elif accept < .2:
                 self.leave = True
-                return self.fill('''NAME fumed, "Get out of here!"''')
+                return self.fill(self.getIndex(GETOUT))
             else:
-                if self.streak > 1.1:
-                    return self.fill(self.getIndex(STREAK).replace("OFFER",str(offer))+" he said, "+self.getIndex(MOODHINT))
+                if self.offerstreak > 1.1:
+                    return self.fill("%s%s he said, %s" % (self.getIndex(BADOFFERCOUNT),self.getIndex(STREAK1).replace("OFFER",str(offer)),self.getIndex(STREAK2)))
                 compromise = int(((offer+self.price)/2)/(.5+self.mood*.5))
                 return self.fill(self.getIndex(DENY1)+self.getIndex(DENY2)).replace("COMPROMISE",str(compromise))
         elif len(offer) > 1:
-            return self.fill(self.getIndex(TMO)+" he said, "+self.getIndex(MOODHINT))
+            return self.fill(self.getIndex(BADOFFERCOUNT) + self.getIndex(TOOMANY1) + " he said, " + self.getIndex(TOOMANY2))
         elif len(offer) < 1:
             leave = ["bye","none","nothing","leave"]
             if any([i in text.lower() for i in leave]):
                 self.leave = True
                 return self.fill(self.getIndex(LEAVE))
             else:
-                return self.fill(self.getIndex(NEO)+" he said, "+self.getIndex(MOODHINT))
+                return self.fill(self.getIndex(BADOFFERCOUNT) + self.getIndex(OFFERNOT1) + " he said, " + self.getIndex(OFFERNOT2))
 
 
 def split_into_rows(l,rowsize):

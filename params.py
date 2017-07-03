@@ -82,7 +82,8 @@ GREETINGS1 = [
     '''"Okay, you came to my shop," NAME shrugged. ''',
     '''"My name's NAME," said NAME. ''',
     '''"I'm NAME," said NAME. ''',
-    '''"Hello human, welcome to SHOP, where I sell things to people!" NAME said, ''',
+    '''"Hello human," NAME said. ''',
+    '''"What's up, customer?" NAME said. ''',
     '''"What a lovely day," said NAME. ''',
     '''"Fine day to buy from me!" NAME exclaimed. ''',
     '''"Good day, customer," NAME said cheerfully. ''',
@@ -92,59 +93,112 @@ GREETINGS1 = [
 GREETINGS2 = [
     '''"Gimme money."''',
     '''"Got any money?"''',
-    '''"I'm rather hungry, and if I can't buy food, you're the next choice."''',
+    '''"I want your money."''',
     '''"How much you gonna pay?"''',
+    '''"You're gonna give me lots of money!"''',
     '''"Buy my ITEMs today!"''',
+    '''"Welcome to SHOP, where I sell ITEMs to everyone!"''',
     '''"You should probably give me some money!"''',
     '''"Came for the ITEM, did ya?"''',
+    '''"Welcome to the finest ITEM shop in the land!"''',
     '''"Welcome to SHOP!"''',
 ]
 
+# Prefix for the next three
+BADOFFERCOUNT = [
+    '''NAME growled. ''',
+    '''NAME frowned. ''',
+    '''NAME sighed. ''',
+    '''NAME: ''',
+    '''NAME: ''',
+    '''NAME: ''',
+    '''NAME smiled. '''
+]
 
 # Too many offers
-TMO = [
-    '''NAME: "One price, you idiot"''',
-    '''NAME mocked you, "I think one price should do,"''',
-    '''NAME: "The price is a very confusing subject, yes?"''',
-    '''NAME sighed, "Only one price is needed"''',
-    '''NAME: "Uhhh.. wat?"''',
-    '''NAME: "Sorry?"''',
-    '''NAME: "What you say?"''',
-    '''NAME: "What was that?"'''
+TOOMANY1 = [
+    '''"One price, you idiot,"''',
+    '''"I think one price should do,"''',
+    '''"The price is a very confusing subject, yes?"''',
+    '''"Only one price is needed"''',
+    '''"Uhhh.. wat?"''',
+    '''"Sorry?"''',
+    '''"What you say?"''',
+    '''"What was that?"'''
+]
+TOOMANY2 = [
+    '''"I'm angry!!"''',
+    '''"are you dumb?"''',
+    '''"so get on with it!"''',
+    '''"it's not that hard."''',
+    '''"you're not making any sense."''',
+    '''"you've confused me!"''',
+    '''"I don't understand your offer."'''
 ]
 
-# Not enough offers
-NEO = [
-    '''NAME: "Give me a price, you imbecile!"''',
-    '''NAME: "A price??!"''',
-    '''NAME: "Offer your price!"''',
-    '''NAME: "What price would you like?"''',
-    '''NAME: "You like my ITEM? I'll give it to you cheap!"''',
-    '''NAME: "How may I help you, and how much money can I get from you?"''',
-    '''NAME smiled: "What's your offer?"'''
+# No offers
+OFFERNOT1 = [
+    '''"Give me a price, you imbecile!"''',
+    '''"A price??!"''',
+    '''"Offer your price!"''',
+    '''"What's your offer?"''',
+    '''"What price do you propose?"''',
+    '''"You were looking to buy a ITEM?"''',
+    '''"Give me a price, and we shall make a compromise, yes?"''',
+    '''"Shoot away, and if the price is right, you might get it cheap,"''',
+    '''"You like my ITEM? I'll give it to you cheap!"''',
+    '''"How may I help you, and how much money will you give me?"''',
+    '''"Make an offer, any offer, and your kindness may reward you!"'''
 ]
-
-# Hint at trader's mood
-MOODHINT = [
+OFFERNOT2 = [
     '''"I'm angry!!"''',
     '''"are you an idiot?!"''',
     '''"or you'll get nothing."''',
-    '''"it's a good day to buy a ITEM!"''',
-    '''"I'm starting to like you."''',
-    '''"you are a fine sir!"''',
-    '''smiling, "I knew you were going to be one of the good ones!"'''
+    '''"it's not that hard!"''',
+    '''"we're gonna have to discuss the price."''',
+    '''"we're cheap here!"''',
+    '''"it is a good day to buy a ITEM!"''',
+    '''"I do enjoy trading with you!"''',
+    '''"I like your attitude."''',
+    '''"it's great to do business together!"''',
+    '''"what a fine customer you are!"'''
 ]
+
+# Player keeps saying the same offer
+STREAK1 = [
+    '''"Give me a better offer or you're out!"''',
+    '''"How many times are you gonna offer the same price?!"''',
+    '''"You know, just saying the same offer over again won't work,"''',
+    '''"Offer something else!"''',
+    '''"That's the same offer as last time!"''',
+    '''"You already said that!"''',
+    '''"You're gonna have to offer something other than $OFFER,"'''
+]
+STREAK2 = [
+    '''"I'm angry!!"''',
+    '''"are you an idiot?!"''',
+    '''"this isn't very effective!"''',
+    '''"you're boring me!"''',
+    '''"I won't take it!"''',
+    '''"I'm not stupid, you know."''',
+    '''"you gotta switch things up a bit."''',
+    '''"show me something new."'''
+]
+
 
 # Accept the offer
 ACCEPT1 = [
+    "NAME hesitated. ",
+    "NAME thought. ",
     "NAME nodded. ",
     "NAME smiled. ",
     "NAME grinned. ",
     "NAME clapped. "
 ]
 ACCEPT2 = [
-    '''"I'll accept that"''',
-    '''"That's about right!"''',
+    '''"I'll accept that."''',
+    '''"Okay, that seems reasonable."''',
+    '''"That's about right."''',
     '''"I'll take it!"''',
     '''"Thanks for buying at SHOP!"''',
     '''"Have a great day!"'''
@@ -191,12 +245,6 @@ NOTENOUGHMONEY = [
     '''NAME: "Oh, you need more gold to buy that. Sorry!"'''
 ]
 
-# Player keeps saying the same offer
-STREAK = [
-    '''NAME: "Give me a better offer or you're out!"''',
-    '''NAME: "How many times are you gonna offer the same price?!"''',
-    '''NAME: "You know, just saying the same offer over again won't work,"''',
-    '''NAME: "That's the same offer as last time!"''',
-    '''NAME: "You already said that!"''',
-    '''NAME: "You're gonna have to offer something other than $OFFER,"'''
+GETOUT = [
+    '''NAME fumed, "Get out of here!"'''
 ]
