@@ -1,4 +1,7 @@
+# ITEMS AND DIALOG
 
+# This is the list of items, their value (which is slightly changed for each trader), and their description
+# template: {"name":"", "value":1, "desc":""},
 
 ITEMS = [
     {"name":"soggy cardboard", "value":1, "desc":"less than completely useless"},
@@ -47,7 +50,10 @@ ITEMS = [
     {"name":"fancy feast", "value":2+2, "desc":"gives your cats superpowers"},
     {"name":"dodo bird", "value":1662, "desc":"as dead as a dodo"}
 ]
-# template: {"name":"", "value":1, "desc":""},
+
+# For all these lists, NAME is replaced with the trader's name, SHOP is replaced with the shop name,
+# ITEM is replaced with the trader's item's name, ITEMs is replaced with its pluralized form,
+# and PRICE is replaced with the trader's price for the item
 
 SHOPNAMES = [
     "NAME's Shop Stop",
@@ -72,10 +78,15 @@ SHOPNAMES = [
     "ITEMs R Us"
 ]
 
-GREETINGS = [
-    '''"What's up, customer?" NAME said, "Not my prices!"''',
-    '''"What a lovely day," NAME said, "to buy my ITEMs!"''',
-]
+#  The following are dialog lists, each in order from angry to happy.
+#  When there are two with the same name (for example, DIALOG1, DIALOG2),
+#  it means that they are put together to make the final dialog.
+
+
+# GREETINGS = [
+#     '''"What's up, customer?" NAME said, "Not my prices!"''',
+#     '''"What a lovely day," NAME said, "to buy my ITEMs!"''',
+# ]
 
 GREETINGS1 = [
     '''"What do you want?" NAME grumbled. ''',
