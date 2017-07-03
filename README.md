@@ -4,10 +4,11 @@ Text-based trading game
 
 ## Usage
 
-to run this program use
+To run this program use
 
 	python main.py
 
+You need the module TextBlob, a library for processing textual data, and the necessary NLTK corpora. You can easily install these - check out [TextBlob installation instructions.](https://textblob.readthedocs.io/en/dev/install.html)
 
 ## How it works
 
@@ -106,3 +107,4 @@ In the future, I plan to add the following features:
 * More items and dialog
 * Better pluralization and capitalization of item and shop names
 * More things to do, to make it more of a story
+* Make traders more intelligent
