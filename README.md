@@ -103,7 +103,7 @@ Check and open issues to discuss any ideas about bugs or features
 
 Fork the repository, make changes, and send pull requests
 
-If you want to, you can add some items or dialog to the game. These are all located in the params.py file. You probably don't even have to know Python - just follow the pattern. I've provided comments to help you.
+You can add some items or dialog to the game, which are all located in the params.py file. You probably don't even have to know Python - just follow the pattern. I've provided comments to help you.
 
 ## Future Developments
 In the future, I plan to add the following features:
