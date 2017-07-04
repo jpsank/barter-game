@@ -99,11 +99,11 @@ When you're finished, just exit, and you will go find another trader. You might 
 	You leave to find another trading stand.
 
 ## Contributing
-Check and open issues to discuss any ideas about bugs or features
+Open issues to discuss any ideas about bugs or features.
 
-Fork the repository, make changes, and send pull requests
+Fork the repository, make changes, and send pull requests.
 
-You can add some items or dialog to the game, which are all located in the params.py file. You probably don't even have to know Python - just follow the pattern. I've provided comments to help you.
+You can add some items or dialog to the game by editing the params.py file. There are commented instructions included.
 
 ## Future Developments
 In the future, I plan to add the following features:
