@@ -110,4 +110,4 @@ In the future, I plan to add the following features:
 * More items and dialog
 * Better pluralization and capitalization of item and shop names
 * More things to do, to make it more of a story
-* Make traders more intelligent
+* Make traders more intelligent and engaging
