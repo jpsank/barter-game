@@ -1,0 +1,4 @@
+*.iml
+*.xml
+saves/save.p
+*.pyc
